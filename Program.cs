@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -145,7 +145,7 @@ namespace A888067.Actividad02
             int CantInfantes;
             int TotalPasajeros;
 
-            Dictionary<int, string> Reservas = new Dictionary<int, string>();
+            Dictionary<string, int> Reservas = new Dictionary<string, int>();
 
             do
             {
@@ -260,7 +260,7 @@ namespace A888067.Actividad02
                                         {
                                             CapacidadValidada -= TotalPasajeros;
 
-                                            Reservas.Add(IDReservaValidado, VueloReserva);
+                                            Reservas.Add(VueloReserva,IDReservaValidado);
                                             Console.WriteLine("Se agregó la reserva. Desea agregar otra reserva? Si/No");
                                             Agregar = Console.ReadLine();
                                         }
@@ -272,7 +272,29 @@ namespace A888067.Actividad02
                 }
             } while (Agregar.ToUpper() == "SI");
 
+            for (int indexVuelo = 0; indexVuelo < Vuelos.Count; indexVuelo++)
+            {
+                var itemVuelo = Vuelos.ElementAt(indexVuelo);
+                string itemKeyVuelo = itemVuelo.Key;
+
+                for (int indexReserva = 0; indexReserva < Vuelos.Count; indexReserva++)
+                {
+                    var itemReserva = Vuelos.ElementAt(indexReserva);
+                    var itemKeyReserva = itemReserva.Key;
+                    var itemvalueReserva = itemReserva.Value;
+
+                    if (itemKeyVuelo == itemKeyReserva)
+                    {
+                        
+                    }
+
+                }
+            }
+
+
             Console.ReadLine();
         }
     }
+}
+
 }
